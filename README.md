@@ -47,9 +47,18 @@ what I'll add next.
 * better bar hiding (currently janky)
 * software checks and auto setup
 
-## Use
-Right now the script needs some modifications to work on another system.
+## FAQ
+### How do I use it
+Right now this github is mostly just here to keep track of the scripts progress.
+However if you really want to use the script you'll have to:
+1. Replace the themes in the start of the script with paths and iTerm2 profiles 
+that'll work for you
+2. Tell iTerm2 to use settings from another folder, `~/.kawaiify/` and then export
+your current settings to there.
+3. Run the script
 
-##FAQ
+### why doesn't it do X
+Either I'm bad or OSX isn't customizable enough
+
 ### the name is dumb
 no u
