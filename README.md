@@ -36,7 +36,7 @@ does a similar thing for switching dark-mode on.
 
 ### Adding themes involves altering the script directly, by modifying a case statement
 IKR. This isn't urgent for me but would make the script much cleaner and
-easier to configure. It shouldn't be too difficult easier so this is probably
+easier to configure. It shouldn't be too difficult either so this is probably
 what I'll add next.
 
 ## Potential Options
