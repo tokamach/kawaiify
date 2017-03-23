@@ -1,0 +1,84 @@
+#!/bin/bash
+# weebify mac AKA kawaiify
+
+# settings
+case "${@: -1}" in
+    blue)
+        HIDE_BAR=1
+        DARK_MODE=1
+        WALLPAPER=~/wall/qt/1487725005896.png
+        TERMINAL_PROFILE=Blue
+        NEOFETCH_IMAGE=~/Pictures/stern-homura.jpg
+        ;;
+
+    pink)
+        HIDE_BAR=1
+        DARK_MODE=0
+        WALLPAPER=~/wall/qt/1487717283179.png 
+        TERMINAL_PROFILE=Light
+#        NEOFETCH_IMAGE=/Users/tom/wall/qt/1487807462131.jpg
+        NEOFETCH_IMAGE=/Users/tom/Pictures/madoka.png 
+        ;;
+
+    dark)
+        HIDE_BAR=0
+        DARK_MODE=1
+        WALLPAPER=/Users/tom/Pictures/cat_irl.jpg 
+        TERMINAL_PROFILE=Dark
+        NEOFETCH_IMAGE=~/Pictures/yes.jpg
+        ;;
+
+    *)
+        HIDE_BAR=1
+        DARK_MODE=0
+        WALLPAPER=~/wall/qt/1487725005896.png
+        TERMINAL_PROFILE=Light
+esac
+
+
+# menu bar hidden, for ａｅｓｔｈｅｔｉｃ
+#if [ $HIDE_BAR = 0 ] ; then
+#    defaults write NSGlobalDomain _HIHideMenuBar -bool false
+#elif [ $HIDE_BAR = 1 ] ; then
+#    defaults write NSGlobalDomain _HIHideMenuBar -bool true
+#fi
+#killall Finder
+
+if [ $HIDE_BAR != $(defaults read NSGlobalDomain _HIHideMenuBar) ] ; then
+    osascript -e '
+    tell application "System Preferences"
+       reveal pane "com.apple.preference.general"
+    end tell
+    delay 0.5
+    tell application "System Events" to tell process "System Preferences"
+       click checkbox "Automatically hide and show the menu bar" of window "General"
+    end tell
+    delay 0.5
+    tell application "System Preferences"
+       quit
+    end tell'
+fi
+
+if [ $DARK_MODE = 0 ] ; then
+    dark-mode off
+elif [ $DARK_MODE = 1 ] ; then
+    dark-mode on
+fi
+
+setwp $WALLPAPER
+
+# set iterm2 current profile and default, not great rn
+echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
+cp ~/code/dotfiles/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/code/dotfiles/com.googlecode.iterm2.plist
+
+# do neofetch?
+while getopts ":n" opt; do
+    case $opt in
+        n)
+            neofetch --iterm2 $NEOFETCH_IMAGE
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            ;;
+    esac
+done
