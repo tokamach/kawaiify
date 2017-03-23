@@ -69,8 +69,17 @@ fi
 setwp $WALLPAPER
 
 # set iterm2 current profile and default, not great rn
-echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
-cp ~/.kawaii-five-oh/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/.kawaii-five-oh/com.googlecode.iterm2.plist
+#echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
+#cp ~/.kawaii-five-oh/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/.kawaii-five-oh/com.googlecode.iterm2.plist
+
+for i in `seq 0 3`; do
+    NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
+    if [ $NAME == $1 ] ; then
+        echo YES
+        GUID=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Guid" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
+        /usr/libexec/PlistBuddy -c "set :Default\ Bookmark\ Guid $GUID" ~/.kawaii-five-oh/com.googlecode.iterm2.plist
+    fi
+done
 
 # do neofetch?
 while getopts ":n" opt; do
