@@ -57,6 +57,12 @@ that'll work for you
 your current settings to there.
 3. Run the script
 
+### Can I change other things, prompt etc...
+Right now I haven't implemented directly changing shell configs. **However** there
+is an alternate system usable right now. The file `~/.kawaiify/theme.lock` contains
+the current theme name. Use this to your advantage, for example you could set your
+bash/zsh/fish prompt to change based on this file. It's what I do.
+
 ### why doesn't it do X
 Either I'm bad or OSX isn't customizable enough
 
