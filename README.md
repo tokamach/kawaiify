@@ -63,6 +63,11 @@ is an alternate system usable right now. The file `~/.kawaiify/theme.lock` conta
 the current theme name. Use this to your advantage, for example you could set your
 bash/zsh/fish prompt to change based on this file. It's what I do.
 
+### I don't like terminals, is this possible from a GUI
+why are you here
+
+But ok I might make a menu bar widget later
+
 ### why doesn't it do X
 Either I'm bad or OSX isn't customizable enough
 
