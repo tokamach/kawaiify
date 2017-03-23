@@ -2,6 +2,7 @@
 # Kawaii Five-Oh
 # macOS theming script
 
+echo "${@: -1}"
 # settings
 case "${@: -1}" in
     blue)
@@ -72,14 +73,17 @@ setwp $WALLPAPER
 #echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
 #cp ~/.kawaii-five-oh/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/.kawaii-five-oh/com.googlecode.iterm2.plist
 
-echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
 for i in `seq 0 3`; do
     PROF_NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
+    echo $PROF_NAME
     if [ $PROF_NAME == $TERMINAL_PROFILE ] ; then
+        echo FOUND $PROF_NAME match $TERMINAL_PROFILE
         PROF_GUID=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Guid" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
+        echo GUID IS $PROF_GUID
         /usr/libexec/PlistBuddy -c "set :Default\ Bookmark\ Guid $PROF_GUID" ~/.kawaii-five-oh/com.googlecode.iterm2.plist
     fi
 done
+echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
 
 # do neofetch?
 while getopts ":n" opt; do
