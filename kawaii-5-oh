@@ -63,11 +63,8 @@ setwp $WALLPAPER
 # set iterm2 current profile and default
 for i in `seq 0 3`; do
     PROF_NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
-    echo $PROF_NAME
     if [ $PROF_NAME == $TERMINAL_PROFILE ] ; then
-        echo FOUND $PROF_NAME match $TERMINAL_PROFILE
         PROF_GUID=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Guid" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
-        echo GUID IS $PROF_GUID
         /usr/libexec/PlistBuddy -c "set :Default\ Bookmark\ Guid $PROF_GUID" ~/.kawaii-five-oh/com.googlecode.iterm2.plist
     fi
 done
