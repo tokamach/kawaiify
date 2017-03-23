@@ -4,6 +4,8 @@ This is a simple script to automatically switch themes on OSX.
 A theme in this case is a wallpaper, terminal theme, dark or
 light menu bar, etc. It is currently a heavy WIP.
 
+![demo](script-demo.gif)
+
 ## Current Options
 * Wallpaper
 * iTerm2 Profile
