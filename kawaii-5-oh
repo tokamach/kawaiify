@@ -2,7 +2,6 @@
 # Kawaii Five-Oh
 # macOS theming script
 
-echo "${@: -1}"
 # settings
 case "${@: -1}" in
     blue)
@@ -37,15 +36,7 @@ case "${@: -1}" in
         TERMINAL_PROFILE=Light
 esac
 
-
-# menu bar hidden, for ａｅｓｔｈｅｔｉｃ
-#if [ $HIDE_BAR = 0 ] ; then
-#    defaults write NSGlobalDomain _HIHideMenuBar -bool false
-#elif [ $HIDE_BAR = 1 ] ; then
-#    defaults write NSGlobalDomain _HIHideMenuBar -bool true
-#fi
-#killall Finder
-
+# Bar hiding for ａｅｓｔｈｅｔｉｃ
 if [ $HIDE_BAR != $(defaults read NSGlobalDomain _HIHideMenuBar) ] ; then
     osascript -e '
     tell application "System Preferences"
@@ -69,10 +60,7 @@ fi
 
 setwp $WALLPAPER
 
-# set iterm2 current profile and default, not great rn
-#echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
-#cp ~/.kawaii-five-oh/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/.kawaii-five-oh/com.googlecode.iterm2.plist
-
+# set iterm2 current profile and default
 for i in `seq 0 3`; do
     PROF_NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
     echo $PROF_NAME
