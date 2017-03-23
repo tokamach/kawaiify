@@ -1,4 +1,4 @@
-# Kawaii Five-Oh
+# Kawaiify
 
 This is a simple script to automatically switch themes on OSX.
 A theme in this case is a wallpaper, terminal theme, dark or

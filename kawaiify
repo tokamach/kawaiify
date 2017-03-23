@@ -30,10 +30,9 @@ case "${@: -1}" in
         ;;
 
     *)
-        HIDE_BAR=1
-        DARK_MODE=0
-        WALLPAPER=~/wall/qt/1487725005896.png
-        TERMINAL_PROFILE=Light
+        # ask for a flag and exit, this MASSIVELY helps when debugging
+        echo Invalid Theme
+        exit 1
 esac
 
 # Bar hiding for ａｅｓｔｈｅｔｉｃ
