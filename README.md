@@ -11,6 +11,13 @@ light menu bar, etc. It is currently a heavy WIP.
 * Dark or light mode
 * Neofetch image
 
+## Potential Options
+* better theme storage (perhaps dedicated file?)
+* KWM/KHD border colours and window settings
+* other teminals
+* better bar hiding (currently janky)
+* software checks and auto setup
+
 ## Use
 Right now the script needs some modifications to work on another system.
 I'm working on getting it to auto-infer system properties.
