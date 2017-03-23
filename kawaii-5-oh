@@ -69,7 +69,7 @@ setwp $WALLPAPER
 
 # set iterm2 current profile and default, not great rn
 echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
-cp ~/code/dotfiles/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/code/dotfiles/com.googlecode.iterm2.plist
+cp ~/.kawaii-five-oh/com.googlecode.iterm2.plist.$TERMINAL_PROFILE ~/.kawaii-five-oh/com.googlecode.iterm2.plist
 
 # do neofetch?
 while getopts ":n" opt; do
