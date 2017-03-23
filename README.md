@@ -14,3 +14,6 @@ light menu bar, etc. It is currently a heavy WIP.
 ## Use
 Right now the script needs some modifications to work on another system.
 I'm working on getting it to auto-infer system properties.
+
+### The name is dumb
+u r dum
