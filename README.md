@@ -14,7 +14,8 @@ light menu bar, etc. It is currently a heavy WIP.
 ## Potential Options
 * better theme storage (perhaps dedicated file?)
 * KWM/KHD border colours and window settings
-* other teminals
+* better iterm2 profile switching and support for other terminals
+* better argument parsing / more arguments
 * better bar hiding (currently janky)
 * software checks and auto setup
 
