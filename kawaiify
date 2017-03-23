@@ -1,5 +1,5 @@
 #!/bin/bash
-# Kawaii Five-Oh
+# Kawaiify
 # macOS theming script
 
 # settings
@@ -35,6 +35,9 @@ case "${@: -1}" in
         exit 1
 esac
 
+# theme lock, for other programs to use
+echo "${@: -1}" > ~/.kawaiify/theme.lock
+
 # Bar hiding for ａｅｓｔｈｅｔｉｃ
 if [ $HIDE_BAR != $(defaults read NSGlobalDomain _HIHideMenuBar) ] ; then
     osascript -e '
@@ -61,10 +64,10 @@ setwp $WALLPAPER
 
 # set iterm2 current profile and default
 for i in `seq 0 3`; do
-    PROF_NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
+    PROF_NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaiify/com.googlecode.iterm2.plist)
     if [ $PROF_NAME == $TERMINAL_PROFILE ] ; then
-        PROF_GUID=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Guid" ~/.kawaii-five-oh/com.googlecode.iterm2.plist)
-        /usr/libexec/PlistBuddy -c "set :Default\ Bookmark\ Guid $PROF_GUID" ~/.kawaii-five-oh/com.googlecode.iterm2.plist
+        PROF_GUID=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Guid" ~/.kawaiify/com.googlecode.iterm2.plist)
+        /usr/libexec/PlistBuddy -c "set :Default\ Bookmark\ Guid $PROF_GUID" ~/.kawaiify/com.googlecode.iterm2.plist
     fi
 done
 echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
