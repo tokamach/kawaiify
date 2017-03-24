@@ -58,10 +58,9 @@ your current settings to there.
 3. Run the script
 
 ### Can I change other things, prompt etc...
-Right now I haven't implemented directly changing shell configs. **However** there
-is an alternate system usable right now. The file `~/.kawaiify/theme.lock` contains
-the current theme name. Use this to your advantage, for example you could set your
-bash/zsh/fish prompt to change based on this file. It's what I do.
+Right now I haven't implemented directly changing shell configs. **However** there is an alternate system usable right now. The file `~/.kawaiify/theme.lock` contains the current theme name. Use this to your advantage, for example you could set your bash/zsh/fish prompt to change based on this file. It's what I do.
+
+[See here for more.](theme-lock.md)
 
 ### I don't like terminals, is this possible from a GUI
 why are you here
