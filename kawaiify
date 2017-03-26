@@ -15,7 +15,8 @@ case "${@: -1}" in
     pink)
         HIDE_BAR=1
         DARK_MODE=0
-        WALLPAPER=~/wall/qt/1487717283179.png 
+#        WALLPAPER=~/wall/qt/1487717283179.png 
+        WALLPAPER=/Users/tom/flipped.png
         TERMINAL_PROFILE=Light
 #        NEOFETCH_IMAGE=/Users/tom/wall/qt/1487807462131.jpg
         NEOFETCH_IMAGE=/Users/tom/Pictures/madoka.png 
@@ -24,9 +25,9 @@ case "${@: -1}" in
     dark)
         HIDE_BAR=0
         DARK_MODE=1
-        WALLPAPER=/Users/tom/Pictures/cat_irl.jpg 
+        WALLPAPER=/Users/tom/wall/qt/1487724950229.png 
         TERMINAL_PROFILE=Dark
-        NEOFETCH_IMAGE=~/Pictures/yes.jpg
+        NEOFETCH_IMAGE=/Users/tom/wall/space/laika+gagarin.jpg 
         ;;
 
     *)
@@ -70,7 +71,11 @@ for i in `seq 0 3`; do
         /usr/libexec/PlistBuddy -c "set :Default\ Bookmark\ Guid $PROF_GUID" ~/.kawaiify/com.googlecode.iterm2.plist
     fi
 done
-echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a"
+
+for term in `ls /dev/ttys* | egrep '\/dev\/ttys\d{3}'`; do
+    echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a" > $term
+done
+
 
 # do neofetch?
 while getopts ":n" opt; do
