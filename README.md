@@ -23,6 +23,9 @@ your current settings to there.
 3. Run the script with `kawaiify themename`
 4. Symlink it to somewhere on your path I guess
 
+***multiple monitors***
+since I got a second monitor I added multi monitor support. set one wallpaper for each monitor in the `$WALLS` variable
+
 ## Issues
 ### new iTerm2 windows won't use new profile until restarted
 This is due to the way iTerm2 loads config on startup. Currently not a high
