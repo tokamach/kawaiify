@@ -9,17 +9,24 @@ case "${@: -1}" in
         DARK_MODE=1
         WALLPAPER=~/wall/qt/1487725005896.png
         TERMINAL_PROFILE=Blue
-        NEOFETCH_IMAGE=~/Pictures/stern-homura.jpg
+        NEOFETCH_IMAGE=~/Pictures/animu/madoka\ magica/stern-homura.jpg
         ;;
 
     pink)
         HIDE_BAR=1
         DARK_MODE=0
-#        WALLPAPER=~/wall/qt/1487717283179.png 
-        WALLPAPER=/Users/tom/flipped.png
+        WALLPAPER=~/wall/qt/1487717283179.png 
         TERMINAL_PROFILE=Light
 #        NEOFETCH_IMAGE=/Users/tom/wall/qt/1487807462131.jpg
-        NEOFETCH_IMAGE=/Users/tom/Pictures/madoka.png 
+        NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka\ magica/madoka.png 
+        ;;
+
+    tol)
+        HIDE_BAR=1
+        DARK_MODE=1
+        WALLPAPER=/Users/tom/wall/tol/1489613589934.jpg
+        TERMINAL_PROFILE=ReddyBrown
+        #NEOFETCH_IMAGE=/Users/tom/Pictures/animu/qt/
         ;;
 
     dark)
@@ -64,7 +71,7 @@ fi
 setwp $WALLPAPER
 
 # set iterm2 current profile and default
-for i in `seq 0 3`; do
+for i in `seq 0 4`; do
     PROF_NAME=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Name" ~/.kawaiify/com.googlecode.iterm2.plist)
     if [ $PROF_NAME == $TERMINAL_PROFILE ] ; then
         PROF_GUID=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks:$i:Guid" ~/.kawaiify/com.googlecode.iterm2.plist)
@@ -81,7 +88,7 @@ done
 while getopts ":n" opt; do
     case $opt in
         n)
-            neofetch --iterm2 $NEOFETCH_IMAGE
+            neofetch --iterm2 "$NEOFETCH_IMAGE"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
