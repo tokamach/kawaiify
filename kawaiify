@@ -7,7 +7,7 @@ case "${@: -1}" in
     blue)
         HIDE_BAR=1
         DARK_MODE=1
-        WALLPAPER=~/wall/qt/1487725005896.png
+        WALLS=(~/wall/qt/1487725005896.png)
         TERMINAL_PROFILE=Blue
         NEOFETCH_IMAGE=~/Pictures/animu/madoka\ magica/stern-homura.jpg
         ;;
@@ -15,7 +15,7 @@ case "${@: -1}" in
     pink)
         HIDE_BAR=1
         DARK_MODE=0
-        WALLPAPER=~/wall/qt/1487717283179.png 
+        WALLS=(~/wall/qt/1487717283179.png ~/wall/tol/1490841209857.png)
         TERMINAL_PROFILE=Light
 #        NEOFETCH_IMAGE=/Users/tom/wall/qt/1487807462131.jpg
         NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka\ magica/madoka.png 
@@ -24,7 +24,7 @@ case "${@: -1}" in
     tol)
         HIDE_BAR=1
         DARK_MODE=1
-        WALLPAPER=/Users/tom/wall/tol/1489613589934.jpg
+        WALLS=(~/wall/meguca/Unknown.png /Users/tom/wall/tol/1489613589934.jpg)
         TERMINAL_PROFILE=ReddyBrown
         #NEOFETCH_IMAGE=/Users/tom/Pictures/animu/qt/
         ;;
@@ -32,7 +32,7 @@ case "${@: -1}" in
     dark)
         HIDE_BAR=0
         DARK_MODE=1
-        WALLPAPER=/Users/tom/wall/qt/1487724950229.png 
+        WALLS=(/Users/tom/wall/qt/1487724950229.png)
         TERMINAL_PROFILE=Dark
         NEOFETCH_IMAGE=/Users/tom/wall/space/laika+gagarin.jpg 
         ;;
@@ -62,13 +62,17 @@ if [ $HIDE_BAR != $(defaults read NSGlobalDomain _HIHideMenuBar) ] ; then
     end tell'
 fi
 
+# dark mode
 if [ $DARK_MODE = 0 ] ; then
     dark-mode off
 elif [ $DARK_MODE = 1 ] ; then
     dark-mode on
 fi
 
-setwp $WALLPAPER
+# wallpaper
+#setwp $WALLPAPER #if only
+#for wall in "${WALLS[@]}" ; do
+~/code/kawaiify/wall.py ${WALLS[@]}
 
 # set iterm2 current profile and default
 for i in `seq 0 4`; do
@@ -82,7 +86,6 @@ done
 for term in `ls /dev/ttys* | egrep '\/dev\/ttys\d{3}'`; do
     echo -e "\033]50;SetProfile=$TERMINAL_PROFILE\a" > $term
 done
-
 
 # do neofetch?
 while getopts ":n" opt; do
