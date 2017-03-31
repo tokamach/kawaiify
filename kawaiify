@@ -70,12 +70,9 @@ elif [ $DARK_MODE = 1 ] ; then
 fi
 
 # wallpaper
-#setwp $WALLPAPER #if only
-#for wall in "${WALLS[@]}" ; do
 ~/code/kawaiify/wall.py ${WALLS[@]}
 
 # set iterm2 current profile and default
-#for i in `seq 0 4`; do
 TIMES=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks" ~/.kawaiify/com.googlecode.iterm2.plist | grep -E "^\s{4}Dict\s\{" | wc -l)
 TIMES=$((TIMES-1))
 for i in `seq 0 $TIMES`; do
