@@ -49,7 +49,7 @@ why are you here
 
 But ok I might make a menu bar widget later
 
-### why doesn't it do X
+### why doesn't it do $X
 Either I'm bad or OSX isn't customizable enough
 
 ### the name is dumb
