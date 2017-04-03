@@ -63,12 +63,6 @@ if [ $HIDE_BAR != $(defaults read NSGlobalDomain _HIHideMenuBar) ] ; then
 fi
 
 # dark mode
-#if [ $DARK_MODE = 0 ] ; then
-#    dark-mode off
-#elif [ $DARK_MODE = 1 ] ; then
-#    dark-mode on
-#fi
-
 if [ $DARK_MODE = 0 ] ; then
     osascript -e '
     tell application "System Events"
