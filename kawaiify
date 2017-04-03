@@ -7,7 +7,7 @@ case "${@: -1}" in
     blue)
         HIDE_BAR=1
         DARK_MODE=1
-        WALLS=(~/wall/qt/1487725005896.png)
+        WALLS=(~/wall/qt/1487725005896.png ~/wall/tol/1491080200251.jpg)
         TERMINAL_PROFILE=Blue
         NEOFETCH_IMAGE=~/Pictures/animu/madoka_magica/stern-homura.jpg
         ;;
@@ -17,7 +17,6 @@ case "${@: -1}" in
         DARK_MODE=0
         WALLS=(~/wall/qt/1487717283179.png ~/wall/tol/1490841209857.png)
         TERMINAL_PROFILE=Light
-#        NEOFETCH_IMAGE=/Users/tom/wall/qt/1487807462131.jpg
         NEOFETCH_IMAGE=~/Pictures/animu/madoka_magica/madoka.png 
         ;;
 
