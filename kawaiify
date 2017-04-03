@@ -9,7 +9,7 @@ case "${@: -1}" in
         DARK_MODE=1
         WALLS=(~/wall/qt/1487725005896.png)
         TERMINAL_PROFILE=Blue
-        NEOFETCH_IMAGE=~/Pictures/animu/madoka\ magica/stern-homura.jpg
+        NEOFETCH_IMAGE=~/Pictures/animu/madoka_magica/stern-homura.jpg
         ;;
 
     pink)
@@ -18,23 +18,23 @@ case "${@: -1}" in
         WALLS=(~/wall/qt/1487717283179.png ~/wall/tol/1490841209857.png)
         TERMINAL_PROFILE=Light
 #        NEOFETCH_IMAGE=/Users/tom/wall/qt/1487807462131.jpg
-        NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka\ magica/madoka.png 
+        NEOFETCH_IMAGE=~/Pictures/animu/madoka_magica/madoka.png 
         ;;
 
     tol)
         HIDE_BAR=1
         DARK_MODE=1
-        WALLS=(~/wall/meguca/Unknown.png /Users/tom/wall/tol/1489613589934.jpg)
+        WALLS=(~/wall/meguca/Unknown.png ~/wall/tol/1489613589934.jpg)
         TERMINAL_PROFILE=ReddyBrown
-        #NEOFETCH_IMAGE=/Users/tom/Pictures/animu/qt/
+        NEOFETCH_IMAGE=~/Pictures/animu/2hu/1490842994158_tr.png
         ;;
 
     dark)
         HIDE_BAR=0
         DARK_MODE=1
-        WALLS=(/Users/tom/wall/qt/1487724950229.png)
+        WALLS=(~/wall/qt/1487724950229.png ~/wall/tol/wash.jpg)
         TERMINAL_PROFILE=Dark
-        NEOFETCH_IMAGE=/Users/tom/wall/space/laika+gagarin.jpg 
+        NEOFETCH_IMAGE=~/wall/space/laika+gagarin.jpg 
         ;;
 
     *)
@@ -63,11 +63,28 @@ if [ $HIDE_BAR != $(defaults read NSGlobalDomain _HIHideMenuBar) ] ; then
 fi
 
 # dark mode
+#if [ $DARK_MODE = 0 ] ; then
+#    dark-mode off
+#elif [ $DARK_MODE = 1 ] ; then
+#    dark-mode on
+#fi
+
 if [ $DARK_MODE = 0 ] ; then
-    dark-mode off
+    osascript -e '
+    tell application "System Events"
+    	 tell appearance preferences
+    	      set dark mode to false
+  	 end tell
+    end tell'
 elif [ $DARK_MODE = 1 ] ; then
-    dark-mode on
+    osascript -e '
+    tell application "System Events"
+    	 tell appearance preferences
+    	      set dark mode to true
+  	 end tell
+    end tell'
 fi
+
 
 # wallpaper
 ~/code/kawaiify/wall.py ${WALLS[@]}
