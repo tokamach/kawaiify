@@ -13,12 +13,13 @@ In my `init.el` I have this snippet:
   (with-temp-buffer
     (insert-file-contents filePath)
     (buffer-string)))
-
-(defun theme-update-callback (dud)
+	
+(defun theme-update-callback (event)
   (pcase (get-string-from-file "~/.kawaiify/theme.lock")
     ("pink\n" (load-theme 'pink-bliss t))
-    (t (load-theme 'solarized-dark t))))
-(theme-update-callback 1)
+    ("tol\n"  (load-theme 'birds-of-paradise-plus t))
+    ("dark\n" (load-theme 'zenburn t))
+    (_ (load-theme 'creamsody t)))) ;blue
 
 (file-notify-add-watch
  "~/.kawaiify/theme.lock"
