@@ -1,6 +1,7 @@
 #!/bin/bash
-# Kawaiify
-# macOS theming script
+# Kawaiify, a macOS theming script
+# written with reckless abandon by tom
+# github.com/tokamach
 
 # settings
 case "${@: -1}" in
