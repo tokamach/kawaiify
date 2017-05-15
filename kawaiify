@@ -50,6 +50,32 @@ case "${@: -1}" in
         exit 1
 esac
 
+# python wall script
+WALL_SCRIPT_PY_SOURCE="
+import os
+import sys
+
+from AppKit import NSScreen, NSWorkspace
+from Foundation import NSURL
+
+ws = NSWorkspace.sharedWorkspace()
+
+options = {}
+screens = NSScreen.screens()
+args = sys.argv
+args.pop(0)
+
+if (len(args) > 1):
+    for index, wall in enumerate(args):
+        file_path = os.path.abspath(wall)
+        file_url = NSURL.fileURLWithPath_(file_path)
+        (result, error) = ws.setDesktopImageURL_forScreen_options_error_(file_url, screens[index], options, None)
+else:
+    for screen in screens:
+        file_path = os.path.abspath(args[0])
+        file_url = NSURL.fileURLWithPath_(file_path)
+        (result, error) = ws.setDesktopImageURL_forScreen_options_error_(file_url, screen, options, None)"
+
 # theme lock, for other programs to use
 echo "${@: -1}" > ~/.kawaiify/theme.lock
 
@@ -88,7 +114,7 @@ fi
 
 
 # wallpaper
-~/code/kawaiify/wall.py ${WALLS[@]}
+python -c "$WALL_SCRIPT_PY_SOURCE" ${WALLS[@]}
 
 # set iterm2 current profile and default
 TIMES=$(/usr/libexec/PlistBuddy -c "print :New\ Bookmarks" ~/.kawaiify/com.googlecode.iterm2.plist | grep -E "^\s{4}Dict\s\{" | wc -l)
