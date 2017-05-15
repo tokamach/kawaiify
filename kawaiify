@@ -5,19 +5,19 @@
 # settings
 case "${@: -1}" in
     blue)
-        HIDE_BAR=1
+        HIDE_BAR=0
         DARK_MODE=1
-        WALLS=(~/wall/qt/1487725005896.png ~/wall/tol/1491080200251.jpg)
+        WALLS=(~/wall/qt/1487725005896.png ~/wall/tol/1491902097718.jpg)
         TERMINAL_PROFILE=Blue
         NEOFETCH_IMAGE=~/Pictures/animu/madoka_magica/stern-homura.jpg
         ;;
 
     pink)
-        HIDE_BAR=1
+        HIDE_BAR=0
         DARK_MODE=0
-        WALLS=(~/wall/qt/1487717283179.png ~/wall/tol/1490841209857.png)
+        WALLS=(~/wall/disabled-waifus/1489369524301.png ~/wall/tol/1490841209857.png)
         TERMINAL_PROFILE=Light
-        NEOFETCH_IMAGE=~/Pictures/animu/madoka_magica/madoka.png 
+        NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka_magica/madoka/1491346746263.png 
         ;;
 
     tol)
@@ -34,6 +34,14 @@ case "${@: -1}" in
         WALLS=(~/wall/qt/1487724950229.png ~/wall/tol/wash.jpg)
         TERMINAL_PROFILE=Dark
         NEOFETCH_IMAGE=~/wall/space/laika+gagarin.jpg 
+        ;;
+
+    dragons)
+        HIDE_BAR=0
+        DARK_MODE=0
+        WALLS=(~/wall/qt/1487229840689.png ~/wall/tol/1490841209857.png)
+        TERMINAL_PROFILE=Light
+        NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka_magica/madoka/1491346746263.png 
         ;;
 
     *)
