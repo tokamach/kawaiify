@@ -1,6 +1,6 @@
 #!/bin/bash
 # Kawaiify, a macOS theming script
-# written with reckless abandon by tom, pls no steal
+# written with reckless abandon by tokamach, pls no steal
 # github.com/tokamach
 
 # settings
@@ -21,20 +21,20 @@ case "${@: -1}" in
         NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka_magica/madoka/1491346746263.png 
         ;;
 
-    tol)
-        HIDE_BAR=1
-        DARK_MODE=1
-        WALLS=(~/wall/meguca/Unknown.png ~/wall/tol/1489613589934.jpg)
-        TERMINAL_PROFILE=ReddyBrown
-        NEOFETCH_IMAGE=~/Pictures/animu/2hu/1490842994158_tr.png
-        ;;
-
-    dark)
+    purpur)
         HIDE_BAR=0
         DARK_MODE=1
-        WALLS=(~/wall/qt/1487724950229.png ~/wall/tol/wash.jpg)
-        TERMINAL_PROFILE=Dark
-        NEOFETCH_IMAGE=~/wall/space/laika+gagarin.jpg 
+        WALLS=(~/wall/meguca/1496712546705.png ~/wall/tol/1491161907908.png)
+        TERMINAL_PROFILE=PurPur
+        NEOFETCH_IMAGE=~/code/homepage/mascots/mascot8.png
+        ;;
+
+    sleeper)
+        HIDE_BAR=0
+        DARK_MODE=0
+        WALLS=(~/wall/stock.jpg)
+        TERMINAL_PROFILE=Default
+        NEOFETCH_IMAGE=
         ;;
 
     dragons)
@@ -42,7 +42,7 @@ case "${@: -1}" in
         DARK_MODE=0
         WALLS=(~/wall/qt/1487229840689.png ~/wall/tol/1490841209857.png)
         TERMINAL_PROFILE=Light
-        NEOFETCH_IMAGE=/Users/tom/Pictures/animu/madoka_magica/madoka/1491346746263.png 
+        NEOFETCH_IMAGE=~/Pictures/animu/dragon_maid/tumblr_om72tfyE851vviqkjo1_500.png
         ;;
 
     *)
